@@ -1,0 +1,43 @@
+moon:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LefttoRight
+    pid: {p: 700.0, i: 0.1, d: 400.0}
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: fore
+    pid: {p: 20000.0, i: 0.1, d: 1000.0}
+  joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: aft
+    pid: {p: 20000.0, i: 0.1, d: 1000.0}
+  joint5_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: aftRightTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}
+  joint6_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: aftLeftTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}
+  joint7_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: midRightTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}
+  joint8_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: foreRightTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}
+  joint9_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: foreLeftTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}
+  joint10_position_controller:
+    type: effort_controllers/JointVelocityController
+    joint: midLeftTire_j
+    pid: {p: 200.0, i: 0.1, d: 0.001}

@@ -1,0 +1,10 @@
+
+<launch>
+
+  <node pkg="moon_controller" name="moon" type="spawn_edumip.py">
+
+    
+
+  </node>
+
+</launch>
