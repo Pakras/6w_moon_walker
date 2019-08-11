@@ -6,36 +6,15 @@
 
   <xacro:property name="namespace" value="rmoon"/>
  
-<link name="base">
-        <inertial>
-             <mass value="1"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
-    </inertial>
-         <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.001 0.001 0.001"/>
-      </geometry>
-    </visual>
-  <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-                <box size="0.001 0.5 0.001"/>
-            </geometry>
-        </collision>    
-         
-    </link>
 
-    
     <link name="rmid">
         <inertial>
             <mass value="28" />
             
             <origin xyz="0 0 0" />
             
-            <inertia ixx="0.23768117187" ixy="-0.11662223437" ixz="-0.00455892187
-" iyy="0.22683235937" iyz="0.00430353125" izz="0.42137089062" /> 
+            <inertia ixx="0.23768117187" ixy="0" ixz="0
+" iyy="0.22683235937" iyz="0" izz="0.42137089062" /> 
         </inertial>
         
         <visual>
@@ -62,7 +41,7 @@
   <mu1>0.8</mu1>
   <mu2>0.8</mu2>
   <maxVel>0.0</maxVel>
-  
+  <minDepth>0.001</minDepth>
 </gazebo>
 <link name="lmid">
         <inertial>
@@ -70,8 +49,8 @@
             
             <origin xyz="0 0 0" />
             
-            <inertia ixx="0.23768117187" ixy="-0.11662223437" ixz="-0.00455892187
-" iyy="0.22683235937" iyz="0.00430353125" izz="0.42137089062"/> 
+            <inertia ixx="0.23768117187" ixy="0" ixz="0
+" iyy="0.22683235937" iyz="0" izz="0.42137089062"/> 
         </inertial>
         
         <visual>
@@ -98,20 +77,12 @@
   <mu1>0.8</mu1>
   <mu2>0.8</mu2>
   <maxVel>0.0</maxVel>
-  
+  <minDepth>0.001</minDepth>
 </gazebo>
- <joint name="LefttoBase" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <child link="lmid" />
-    <parent link="base"/>
- <axis rpy="0 0 0" xyz="0 1 0 "/>
-    <limit effort="1110" velocity="10" lower="-1.57079632679" upper="1.57079632679"/>
-    <joint_properties damping="1" friction="1" />
-  </joint>  
-<joint name="RighttoBase" type="revolute">
+ <joint name="LefttoRight" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <child link="rmid" />
-    <parent link="base"/>
+    <parent link="lmid"/>
  <axis rpy="0 0 0" xyz="0 1 0 "/>
     <limit effort="1110" velocity="10" lower="-1.57079632679" upper="1.57079632679"/>
     <joint_properties damping="1" friction="1" />
@@ -119,31 +90,59 @@
 
 <link name="turn_f">
         <inertial>
-             <mass value="1"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
-    </inertial>
+            <mass value="1" />
+            
+            <origin xyz="0 0 0" />
+            
+            <inertia ixx="1" ixy="0.0" ixz="0.0"
+          iyy="1" iyz="0.0"
+          izz="1" />
+        </inertial>
         
          
     </link>
-
+    <gazebo reference="turn_f">
+         
+        <turnGravityOff>false</turnGravityOff>
+                 
+ <kp>1000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>2</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.001</minDepth>
+</gazebo>
 <link name="turn_aft">
         <inertial>
-             <mass value="1"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
-    </inertial>
+            <mass value="1" />
+            
+            <origin xyz="0 0 0" />
+            
+            <inertia ixx="1" ixy="0.0" ixz="0.0"
+          iyy="1" iyz="0.0"
+          izz="1" />
+        </inertial>
         
          
     </link>
-
+    <gazebo reference="turn_aft">
+         
+        <turnGravityOff>false</turnGravityOff>
+                 
+ <kp>1000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>2</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.001</minDepth>
+</gazebo>
     <joint name="turning_f" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <child link="forebody" />
     <parent link="turn_f"/>
  <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="500" velocity="10" lower="-1.57079632679" upper="1.57079632679"/>
-   <joint_properties damping="10" friction="10" />
+    <joint_properties damping="10" friction="10" />
   </joint> 
 <joint name="turning_aft" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -182,11 +181,12 @@
          
         <turnGravityOff>false</turnGravityOff>
                  
- <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp  value="10000000.0" />
-    <kd  value="1.0" />
-  
+ <kp>1000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.001</minDepth>
 </gazebo>
 <joint name="fore" type="prismatic">
     <origin rpy="0 0 0" xyz="0.600000 0 0.02"/>
@@ -226,10 +226,11 @@
          
         <turnGravityOff>false</turnGravityOff>
                  
- <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp  value="10000000.0" />
-    <kd  value="1.0" />
+ <kp>100000000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
 <joint name="aft" type="prismatic">
@@ -270,19 +271,21 @@
     <child link="foreRightTire" />
     <parent link="forebody"/>
     
-  <axis xyz=" 1 0  0" rpy="0 0 0" />
+    <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint>  
 
     <gazebo reference="foreRightTire">
-        <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+                 
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
 <link name="foreLeftTire">
         <inertial>
@@ -302,26 +305,28 @@
         </visual>
 
         <collision>
-          <origin xyz="0 0 0" rpy="0 1.57079632679 0" />
+          <origin xyz="0 0 0" rpy="0 -1.57079632679 0" />
           <geometry>
         <cylinder length="0.2" radius="0.3" />
             </geometry>
         </collision>     
     </link>
     <gazebo reference="foreLeftTire">
-         <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+           
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
 <joint name="foreLeftTire_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="0.15 -0.5 -0.025"/>
     <child link="foreLeftTire" />
     <parent link="forebody"/>
-    <axis xyz=" 1 0  0" rpy="0 0 0" />
+     <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
    <joint_properties damping="1" friction="1" />
   </joint>  
@@ -351,19 +356,21 @@
         </collision>     
     </link>
     <gazebo reference="aftRightTire">
-        <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+                   
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
 <joint name="aftRightTire_j" type="continuous">
     <origin rpy="0 0 -1.57079632679" xyz="-0.15 0.5 -0.025"/>
     <child link="aftRightTire" />
     <parent link="aftbody"/>
-     <axis xyz=" 1 0  0" rpy="0 0 0" />
+     <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint> 
@@ -386,26 +393,29 @@
         </visual>
      
         <collision>
-          <origin xyz="0 0 0" rpy="0 1.57079632679 0" />
+          <origin xyz="0 0 0" rpy="0 -1.57079632679 0" />
           <geometry>
         <cylinder length="0.2" radius="0.3" />
             </geometry>
         </collision>     
     </link>
     <gazebo reference="aftLeftTire">
-    <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+    
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+                
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
 <joint name="aftLeftTire_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="-0.15 -0.5 -0.025"/>
     <child link="aftLeftTire" />
     <parent link="aftbody"/>
-    <axis xyz=" 1 0  0" rpy="0 0 0" />
+    <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint>  
@@ -428,26 +438,28 @@
         </visual>
      
         <collision>
-      <origin xyz="0 0 0" rpy="0 1.57079632679 0" />
+      <origin xyz="0 0 0" rpy="0 -1.57079632679 0" />
           <geometry>
         <cylinder length="0.2" radius="0.3" />
             </geometry>
         </collision>     
     </link>
     <gazebo reference="midLeftTire">
-       <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+                
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+ <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
 <joint name="midLeftTire_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="0 -0.5 0.005"/>
     <child link="midLeftTire" />
-    <parent link="lmid"/>
-     <axis xyz=" 1 0  0" rpy="0 0 0" />
+    <parent link="rmid"/>
+     <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint> 
@@ -477,13 +489,16 @@
         </collision>     
     </link>
     <gazebo reference="midRightTire">
-<mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-    <material>Gazebo/Grey</material>
-    <turnGravityOff>false</turnGravityOff>
+        
+         <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+               
+ <kp>10000000.0</kp>
+  <kd>1.0</kd>
+  <mu1>0.8</mu1>
+  <mu2>0.8</mu2>
+  <maxVel>0.0</maxVel>
+  <minDepth>0.005</minDepth>
 </gazebo>
     
 
@@ -491,14 +506,14 @@
     <origin rpy="0 0 -1.57079632679" xyz="0 0.5 0.005"/>
     <child link="midRightTire" />
     <parent link="rmid"/>
-    <axis xyz=" 1 0  0" rpy="0 0 0" />
+    <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint>
 
 
   
-<!--<transmission name="midle">
+<transmission name="midle">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="LefttoRight">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -507,7 +522,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission>-->
+  </transmission>
 <transmission name="fore_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="fore">
@@ -591,13 +606,13 @@
 
 <joint name="sonar" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.45 0 0" rpy="0 0 0"/>
+    <origin xyz="0.4 0 0" rpy="0 0 0"/>
     <parent link="forebody"/>
     <child link="sonar"/>
   </joint>
 <joint name="sonar2" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="-0.45 0 0" rpy="0 0 3.14159265359"/>
+    <origin xyz="-0.4 0 0" rpy="0 0 3.14159265359"/>
     <parent link="aftbody"/>
     <child link="sonar2"/>
   </joint>
