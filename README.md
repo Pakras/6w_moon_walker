@@ -24,10 +24,10 @@ start keyboard controll
 
 "y" and "h" distance between mid and aftpart
 
-spawn husky bot
+spawn husky bot(http://wiki.ros.org/husky_gazebo/Tutorials/Simulating%20Husky)
 
 `roslaunch moon husky.launch`
 
-spawn hector_quadrotor
+spawn hector_quadrotor(http://wiki.ros.org/hector_quadrotor)
 
 `roslaunch moon quadrotor.launch`
