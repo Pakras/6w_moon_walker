@@ -1,2 +1,0 @@
-# CarcaseMAC
-# aruco
