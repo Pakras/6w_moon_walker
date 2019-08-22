@@ -1,4 +1,10 @@
 # 6w_moon_walker
+dependencies
+
+`sudo apt install ros-kinetic-effort-controllers`
+
+sudo chmod +x moon_controller/src/keyboard_control.py
+
 start world and launch ROKAD
 
 `roslaunch moon main.launch` 
@@ -14,6 +20,8 @@ start keyboard controll
 "w"-forward
 
 "x"-backward
+
+"s"-stop
 
 "a"-left
 
@@ -32,3 +40,5 @@ spawn husky bot(http://wiki.ros.org/husky_gazebo/Tutorials/Simulating%20Husky)
 spawn hector_quadrotor(http://wiki.ros.org/hector_quadrotor)
 
 `roslaunch moon quadrotor.launch`
+
+
