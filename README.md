@@ -10,6 +10,7 @@ start plugin
 start keyboard controll
 
 `rosrun moon_controller keyboard_control.py`
+
 "w"-forward
 
 "x"-backward
