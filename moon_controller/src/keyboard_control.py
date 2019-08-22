@@ -53,19 +53,19 @@ def parse_buttons( key):
 	foreRightTire_pub.publish(1)
 	foreLeftTire_pub.publish(-1)
 	midLeftTire_pub.publish(-1)
-    if key == 'a':
-	aftRightTire_pub.publish(0)
-        aftLeftTire_pub.publish(0)
-	midRightTire_pub.publish(-2)
-	foreRightTire_pub.publish(0)
-	foreLeftTire_pub.publish(0)
-	midLeftTire_pub.publish(-2)
     if key == 'd':
-	aftRightTire_pub.publish(0)
-        aftLeftTire_pub.publish(0)
+	aftRightTire_pub.publish(-2)
+        aftLeftTire_pub.publish(-2)
+	midRightTire_pub.publish(-2)
+	foreRightTire_pub.publish(-2)
+	foreLeftTire_pub.publish(-2)
+	midLeftTire_pub.publish(-2)
+    if key == 'a':
+	aftRightTire_pub.publish(2)
+        aftLeftTire_pub.publish(2)
 	midRightTire_pub.publish(2)
-	foreRightTire_pub.publish(0)
-	foreLeftTire_pub.publish(0)
+	foreRightTire_pub.publish(2)
+	foreLeftTire_pub.publish(2)
 	midLeftTire_pub.publish(2)
         
     if key == 'f':
@@ -83,7 +83,12 @@ def parse_buttons( key):
     if key == 'h':
 	aft+=0.05
         aft_pub.publish(aft)
-    
+    #if key == 'u':
+	#msgForce2-=0.1
+      #  middle_pub2.publish(msgForce2)
+    ###if key == 'j':
+	#msgForce2+=0.1
+       # middle_pub2.publish(msgForce2)
    
     return 0
 
@@ -94,12 +99,13 @@ if __name__ == '__main__':
     force=600
     torque=300
     msgForce1=0
+    msgForce2=0
     fore=0
     aft=0
     current_longt=0    
 
     rospy.init_node('stepper_teleop')
-
+    #middle_pub2 = rospy.Publisher("/moon/joint4_position_controller/command", std_msgs.msg.Float64, queue_size=1)
     middle_pub = rospy.Publisher("/moon/joint1_position_controller/command", std_msgs.msg.Float64, queue_size=1)
     fore_pub = rospy.Publisher("/moon/joint2_position_controller/command", std_msgs.msg.Float64, queue_size=1)
     aft_pub = rospy.Publisher("/moon/joint3_position_controller/command", std_msgs.msg.Float64, queue_size=1)
@@ -119,5 +125,3 @@ if __name__ == '__main__':
                 raise KeyboardInterrupt()
     except Exception as e:
         print(e)
-    finally:
-        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
