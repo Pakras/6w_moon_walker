@@ -203,7 +203,7 @@
             
             <origin xyz="0 0 0" /> 
             
-            <inertia ixx="2.50531372" ixy="0" ixz="0" iyy="3.13793579" iyz="0" izz="5.2699902" /> 
+            <inertia ixx="2.50531372" ixy="0" ixz="0" iyy="3.13793579" iyz="0" izz="5.269990235" /> 
         </inertial>
         
         <visual>
@@ -729,6 +729,7 @@
 <gazebo>
   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
     <robotNamespace>/moon</robotNamespace>
+<legacyModeNS>true</legacyModeNS>
   </plugin>
 </gazebo>
 </robot>
