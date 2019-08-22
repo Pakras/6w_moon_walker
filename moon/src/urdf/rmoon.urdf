@@ -13,8 +13,8 @@
             
             <origin xyz="0 0 0" />
             
-            <inertia ixx="0.23768117187" ixy="0" ixz="0
-" iyy="0.22683235937" iyz="0" izz="0.42137089062" /> 
+            <inertia ixx="0.2376811" ixy="0" ixz="0
+" iyy="0.2268323" iyz="0" izz="0.4213708" /> 
         </inertial>
         
         <visual>
@@ -49,8 +49,8 @@
             
             <origin xyz="0 0 0" />
             
-            <inertia ixx="0.23768117187" ixy="0" ixz="0
-" iyy="0.22683235937" iyz="0" izz="0.42137089062"/> 
+            <inertia ixx="0.2376811" ixy="0" ixz="0
+" iyy="0.2268323" iyz="0" izz="0.4213708"/> 
         </inertial>
         
         <visual>
@@ -203,7 +203,7 @@
             
             <origin xyz="0 0 0" /> 
             
-            <inertia ixx="2.50531372" ixy="0" ixz="0" iyy="3.13793579" iyz="0" izz="5.269990235" /> 
+            <inertia ixx="2.50531372" ixy="0" ixz="0" iyy="3.13793579" iyz="0" izz="5.2699902" /> 
         </inertial>
         
         <visual>
