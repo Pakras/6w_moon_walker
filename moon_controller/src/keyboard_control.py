@@ -83,12 +83,7 @@ def parse_buttons( key):
     if key == 'h':
 	aft+=0.05
         aft_pub.publish(aft)
-    #if key == 'u':
-	#msgForce2-=0.1
-      #  middle_pub2.publish(msgForce2)
-    ###if key == 'j':
-	#msgForce2+=0.1
-       # middle_pub2.publish(msgForce2)
+  
    
     return 0
 
@@ -105,7 +100,7 @@ if __name__ == '__main__':
     current_longt=0    
 
     rospy.init_node('stepper_teleop')
-    #middle_pub2 = rospy.Publisher("/moon/joint4_position_controller/command", std_msgs.msg.Float64, queue_size=1)
+    
     middle_pub = rospy.Publisher("/moon/joint1_position_controller/command", std_msgs.msg.Float64, queue_size=1)
     fore_pub = rospy.Publisher("/moon/joint2_position_controller/command", std_msgs.msg.Float64, queue_size=1)
     aft_pub = rospy.Publisher("/moon/joint3_position_controller/command", std_msgs.msg.Float64, queue_size=1)
@@ -125,3 +120,5 @@ if __name__ == '__main__':
                 raise KeyboardInterrupt()
     except Exception as e:
         print(e)
+    finally:
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
