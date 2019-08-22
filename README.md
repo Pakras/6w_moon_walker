@@ -3,7 +3,7 @@ dependencies
 
 `sudo apt install ros-kinetic-effort-controllers`
 
-sudo chmod +x moon_controller/src/keyboard_control.py
+`sudo chmod +x moon_controller/src/keyboard_control.py`
 
 start world and launch ROKAD
 
