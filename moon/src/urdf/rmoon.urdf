@@ -240,7 +240,7 @@
     <joint_properties damping="1" friction="1" />
   </joint>  
    
-<link name="foreRightTire">
+<link name="foreRightWheel">
         <inertial>
             <mass value="8" />
            
@@ -264,9 +264,9 @@
       </geometry>
         </collision>     
     </link>
-<joint name="foreRightTire_j" type="continuous">
+<joint name="foreRightWheel_j" type="continuous">
     <origin rpy="0 0 -1.57079632679" xyz="0.15 0.5 -0.025"/>
-    <child link="foreRightTire" />
+    <child link="foreRightWheel" />
     <parent link="forebody"/>
     
     <axis rpy="0 0 0" xyz="1 0 0 "/>
@@ -274,7 +274,7 @@
     <joint_properties damping="1" friction="1" />
   </joint>  
 
-    <gazebo reference="foreRightTire">
+    <gazebo reference="foreRightWheel">
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
                  
@@ -285,7 +285,7 @@
   <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
-<link name="foreLeftTire">
+<link name="foreLeftWheel">
         <inertial>
             <mass value="8" />
             
@@ -309,7 +309,7 @@
             </geometry>
         </collision>     
     </link>
-    <gazebo reference="foreLeftTire">
+    <gazebo reference="foreLeftWheel">
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
            
@@ -320,16 +320,16 @@
   <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
-<joint name="foreLeftTire_j" type="continuous">
+<joint name="foreLeftWheel_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="0.15 -0.5 -0.025"/>
-    <child link="foreLeftTire" />
+    <child link="foreLeftWheel" />
     <parent link="forebody"/>
      <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
    <joint_properties damping="1" friction="1" />
   </joint>  
 
-<link name="aftRightTire">
+<link name="aftRightWheel">
         <inertial>
             <mass value="8" />
            
@@ -353,7 +353,7 @@
             </geometry>
         </collision>     
     </link>
-    <gazebo reference="aftRightTire">
+    <gazebo reference="aftRightWheel">
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
                    
@@ -364,16 +364,16 @@
   <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
-<joint name="aftRightTire_j" type="continuous">
+<joint name="aftRightWheel_j" type="continuous">
     <origin rpy="0 0 -1.57079632679" xyz="-0.15 0.5 -0.025"/>
-    <child link="aftRightTire" />
+    <child link="aftRightWheel" />
     <parent link="aftbody"/>
      <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint> 
 
-<link name="aftLeftTire">
+<link name="aftLeftWheel">
         <inertial>
             <mass value="8" />
            
@@ -397,7 +397,7 @@
             </geometry>
         </collision>     
     </link>
-    <gazebo reference="aftLeftTire">
+    <gazebo reference="aftLeftWheel">
     
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
@@ -409,16 +409,16 @@
   <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
-<joint name="aftLeftTire_j" type="continuous">
+<joint name="aftLeftWheel_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="-0.15 -0.5 -0.025"/>
-    <child link="aftLeftTire" />
+    <child link="aftLeftWheel" />
     <parent link="aftbody"/>
     <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint>  
 
-<link name="midLeftTire">
+<link name="midLeftWheel">
         <inertial>
             <mass value="8" />
            
@@ -442,7 +442,7 @@
             </geometry>
         </collision>     
     </link>
-    <gazebo reference="midLeftTire">
+    <gazebo reference="midLeftWheel">
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
                 
@@ -453,16 +453,16 @@
   <maxVel>0.0</maxVel>
   <minDepth>0.005</minDepth>
 </gazebo>
-<joint name="midLeftTire_j" type="continuous">
+<joint name="midLeftWheel_j" type="continuous">
     <origin rpy="0 0 1.57079632679" xyz="0 -0.5 0.005"/>
-    <child link="midLeftTire" />
+    <child link="midLeftWheel" />
     <parent link="rmid"/>
      <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
     <joint_properties damping="1" friction="1" />
   </joint> 
 
-<link name="midRightTire">
+<link name="midRightWheel">
         <inertial>
             <mass value="8" />
            
@@ -486,7 +486,7 @@
             </geometry>
         </collision>     
     </link>
-    <gazebo reference="midRightTire">
+    <gazebo reference="midRightWheel">
         
          <material>Gazebo/FlatBlack</material>
         <turnGravityOff>false</turnGravityOff>
@@ -500,9 +500,9 @@
 </gazebo>
     
 
-<joint name="midRightTire_j" type="continuous">
+<joint name="midRightWheel_j" type="continuous">
     <origin rpy="0 0 -1.57079632679" xyz="0 0.5 0.005"/>
-    <child link="midRightTire" />
+    <child link="midRightWheel" />
     <parent link="rmid"/>
     <axis rpy="0 0 0" xyz="1 0 0 "/>
     <limit effort="1000" velocity="100" />
@@ -543,7 +543,7 @@
   </transmission>
 <transmission name="transmission_aftRightWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="aftRightTire_j">
+    <joint name="aftRightWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_aftRightWheel">
@@ -553,7 +553,7 @@
 </transmission>
 <transmission name="transmission_aftLeftWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="aftLeftTire_j">
+    <joint name="aftLeftWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_aftLeftWheel">
@@ -563,7 +563,7 @@
 </transmission>
 <transmission name="transmission_midLeftWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="midLeftTire_j">
+    <joint name="midLeftWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_midLeftWheel">
@@ -573,7 +573,7 @@
 </transmission>
 <transmission name="transmission_midRightWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="midRightTire_j">
+    <joint name="midRightWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_midRightWheel">
@@ -583,7 +583,7 @@
 </transmission>
 <transmission name="transmission_foreRightWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="foreRightTire_j">
+    <joint name="foreRightWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_foreRightWheel">
@@ -593,7 +593,7 @@
 </transmission>
 <transmission name="transmission_foreLeftWheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="foreLeftTire_j">
+    <joint name="foreLeftWheel_j">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_foreLeftWheel">
@@ -662,8 +662,8 @@
             <gaussianNoise>0.005</gaussianNoise>
             <alwaysOn>true</alwaysOn>
             <updateRate>5</updateRate>
-            <topicName>sonar</topicName>
-            <frameName>sonar_link</frameName>
+            <topicName>sonar_fore</topicName>
+            <frameName>sonar_link_fore</frameName>
             <fov>0.5</fov>
             
             <radiation>ultrasound</radiation>
@@ -716,8 +716,8 @@
             <gaussianNoise>0.005</gaussianNoise>
             <alwaysOn>true</alwaysOn>
             <updateRate>5</updateRate>
-            <topicName>sonar</topicName>
-            <frameName>sonar_link</frameName>
+            <topicName>sonar_aft</topicName>
+            <frameName>sonar_link_aft</frameName>
             <fov>0.5</fov>
             
             <radiation>ultrasound</radiation>
