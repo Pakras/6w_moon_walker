@@ -6,11 +6,11 @@
     command="cat '$(find moon)/src/urdf/rmoon.urdf'" />
  
 <!-- BEGIN ROBOT 0-->
-  <group ns="robot0">
-    <param name="tf_prefix" value="robot0_tf" />
+  <group ns="moon">
+    <param name="tf_prefix" value="moon_tf" />
     <include file="$(find moon)/src/launch/one_robot.launch" >
       <arg name="init_pose" value="-x 0 -y 0 -z 1" />
-      <arg name="robot_name"  value="robot0" />
+      <arg name="robot_name"  value="moon" />
      </include>
 
 

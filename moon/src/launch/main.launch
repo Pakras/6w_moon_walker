@@ -3,13 +3,13 @@
  
   <!-- start world -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find moon)/src/asdqwe.world" respawn="false" output="screen" />
+   args="$(find moon)/src/stair.world" respawn="false" output="screen" />
  
   <!-- start gui -->
    <node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/> 
 
  
   <!-- include our robots -->
-  <include file="$(find moon)/src/launch/robotsall.launch"/>
+  <include file="$(find moon)/src/launch/robots.launch"/>
 
 </launch> 
