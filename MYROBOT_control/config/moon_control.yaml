@@ -5,40 +5,40 @@ moon:
     publish_rate: 100  
 
   # Position Controllers ---------------------------------------
-  joint1_position_controller:
+  LefttoRight:
     type: effort_controllers/JointPositionController
     joint: LefttoRight
     pid: {p: 1000.0, i: 0.1, d: 50}
-  joint2_position_controller:
+  fore:
     type: effort_controllers/JointPositionController
     joint: fore
     pid: {p: 5000.0, i: 0, d: 1000 }
-  joint3_position_controller:
+  aft:
     type: effort_controllers/JointPositionController
     joint: aft
     pid: {p: 5000.0, i: 0, d: 1000}
 
-  joint5_position_controller:
+  aftRightWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: aftRightTire_j
+    joint: aftRightWheel_j
     pid: {p: 500.0, i: 0, d: 0}
-  joint6_position_controller:
+  aftLeftWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: aftLeftTire_j
+    joint: aftLeftWheel_j
     pid: {p: 500.0, i: 0, d: 0}
-  joint7_position_controller:
+  midRightWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: midRightTire_j
+    joint: midRightWheel_j
     pid: {p: 500.0, i: 0, d: 0}
-  joint8_position_controller:
+  foreRightWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: foreRightTire_j
+    joint: foreRightWheel_j
     pid: {p: 500.0, i: 0, d: 0}
-  joint9_position_controller:
+  foreLeftWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: foreLeftTire_j
+    joint: foreLeftWheel_j
     pid: {p: 500.0, i: 0, d: 0}
-  joint10_position_controller:
+  midLeftWheel_j:
     type: effort_controllers/JointVelocityController
-    joint: midLeftTire_j
+    joint: midLeftWheel_j
     pid: {p: 500.0, i: 0, d: 0}
