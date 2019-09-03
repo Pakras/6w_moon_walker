@@ -41,4 +41,8 @@ spawn hector_quadrotor(http://wiki.ros.org/hector_quadrotor)
 
 `roslaunch moon quadrotor.launch`
 
+to send messages in topics
+
+`rosservice call /enable_motors "enable: true"`
+
 
