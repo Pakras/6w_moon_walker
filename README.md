@@ -45,4 +45,12 @@ to send messages in topics
 
 `rosservice call /enable_motors "enable: true"`
 
+to control quadrotor use /cmd_vel topic
+
+to control husky use /twist_marker_server/cmd_vel topic
+
+to read data from quadrotor use /sonar_height/range and position from /ground_truth_to_tf/pose
+to read pose of moon use /moon/odom
+
+
 
