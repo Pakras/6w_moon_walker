@@ -35,21 +35,23 @@ start keyboard controll
 
 spawn husky bot(http://wiki.ros.org/husky_gazebo/Tutorials/Simulating%20Husky)
 
-`roslaunch moon husky.launch`
+`roslaunch husky_gazebo spawn_husky.launch
+
 
 spawn hector_quadrotor(http://wiki.ros.org/hector_quadrotor)
 
-`roslaunch moon quadrotor.launch`
+`roslaunch hector_quadrotor_gazebo spawn_quadrotor.launch`
 
 to send messages in topics
 
-`rosservice call /enable_motors "enable: true"`
+`rosservice call quad/enable_motors "enable: true"`
 
-to control quadrotor use /cmd_vel topic
+to control quadrotor use quad/cmd_vel topic
 
-to control husky use /twist_marker_server/cmd_vel topic
+to control husky use /twist_marker_server/cmd_vel topic and get pose from /husky_velocity_controller/odom
 
-to read data from quadrotor use /sonar_height/range and position from /ground_truth_to_tf/pose
+to read data from quadrotor use /sonar_height/range and position from /quadrotor/ground_truth/state
+
 to read pose of moon use /moon/odom
 
 
